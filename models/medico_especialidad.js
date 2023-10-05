@@ -5,16 +5,15 @@ const medicoEspecialidadShema = new mongoose.Schema(
     medico: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Medico',
-      require: true,
+      require: [true, 'El campo medico es obligatorio.'],
     },
     especialidad: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Especialidad',
-      require: true,
+      require: [true, 'El campo especialidad es obligatorio.'],
     },
     activo: {
       type: Boolean,
-      require: true,
       default: true,
     },
   },

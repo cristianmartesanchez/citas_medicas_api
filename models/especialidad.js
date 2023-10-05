@@ -4,15 +4,13 @@ const especialidShema = new mongoose.Schema(
   {
     nombre: {
       type: String,
-      require: true,
+      require: [true, 'El campo nombre es obligatorio.'],
     },
     descripcion: {
       type: String,
-      require: true,
     },
     activo: {
       type: Boolean,
-      require: true,
       default: true,
     },
   },

@@ -5,23 +5,24 @@ const citaShema = new mongoose.Schema(
     medico: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Medico',
+      require: [true, 'El campo medico es obligatorio.'],
     },
     paciente: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Paciente',
+      require: [true, 'El campo paciente es obligatorio.'],
     },
     fechaAtencion: {
       type: Date,
-      require: true,
+      require: [true, 'El campo fecha atencion es obligatorio.'],
     },
-    inicioAtencio: {
+    fechaInicio: {
       type: Date,
-      require: true,
+      require: [true, 'El campo fecha inicio es obligatorio.'],
     },
-    finAtencion: { type: Date },
+    fechaFin: { type: Date },
     activo: {
       type: Boolean,
-      require: true,
       default: true,
     },
   },

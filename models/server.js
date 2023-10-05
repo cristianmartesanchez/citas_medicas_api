@@ -2,13 +2,12 @@ const express = require('express')
 require('dotenv').config()
 var cors = require('cors')
 
-const { main } = require('../database/database.js')
+const { dbConnection } = require('../database/config.js')
 
 class Server {
   constructor() {
     this.app = express()
     this.port = process.env.PORT || '8080'
-    this.connect = main()
 
     //Connection
     this.database()
@@ -41,8 +40,8 @@ class Server {
     this.app.use('/api/horario', require('../routes/horarioRoutes.js'))
   }
 
-  database() {
-    this.connect.catch((err) => console.log(err))
+  async database() {
+    await dbConnection()
   }
 
   listen() {

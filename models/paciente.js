@@ -1,46 +1,45 @@
-const mongoose = require('mongoose')
+const { Schema, model } = require('mongoose')
 
-const pacienteShema = new mongoose.Schema(
+const pacienteShema = new Schema(
   {
-    nombre: {
+    nombres: {
       type: String,
-      require: true,
+      require: [true, 'El campo nombre es obligatorio.'],
     },
-    apellido: {
+    apellidos: {
       type: String,
-      require: true,
+      require: [true, 'El campo apellido es obligatorio.'],
     },
     edad: {
       type: Number,
-      require: true,
+      require: [true, 'El campo edad es obligatorio'],
     },
     dni: {
       type: String,
-      require: true,
+      require: [true, 'El campo DNI es obligatorio.'],
+      unique: true,
     },
     direccion: {
       type: String,
-      require: true,
     },
     telefono: {
       type: String,
-      require: true,
+      require: [true, 'El campo telefono es obligatorio.'],
     },
     sexo: {
       type: String,
-      require: true,
+      require: [true, 'El campo sexo es obligatorio.'],
     },
     fechaNacimiento: {
       type: Date,
-      require: true,
+      require: [true, 'El campo fecha nacimiento es obligatorio.'],
     },
     activo: {
       type: Boolean,
-      require: true,
       default: true,
     },
   },
   { timestamps: true }
 )
 
-module.exports = mongoose.model('Paciente', pacienteShema)
+module.exports = model('Paciente', pacienteShema)

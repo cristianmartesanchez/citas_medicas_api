@@ -4,37 +4,38 @@ const medicoShema = new mongoose.Schema(
   {
     nombres: {
       type: String,
-      require: true,
+      require: [true, 'El campo nombres es obligatorio.'],
     },
     apellidos: {
       type: String,
-      require: true,
+      require: [true, 'El campo apellidos es obligatorio.'],
     },
     edad: {
       type: Number,
-      require: true,
+      require: [true, 'El campo edad es obligatorio.'],
     },
     dni: {
       type: String,
-      require: true,
+      require: [true, 'El campo DNI es obligatorio.'],
+      unique: true,
     },
     direccion: {
       type: String,
-      require: true,
     },
     correo: {
       type: String,
+      require: [true, 'El campo correo es obligatorio.'],
+      unique: true,
     },
     telefono: {
       type: String,
     },
     fechaNacimiento: {
       type: Date,
-      require: true,
+      require: [true, 'El campo fecha nacimiento es obligatorio.'],
     },
     activo: {
       type: Boolean,
-      require: true,
       default: true,
     },
   },

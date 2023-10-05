@@ -5,23 +5,22 @@ const horarioShema = new mongoose.Schema(
     medico: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Medico',
-      require: true,
+      require: [true, 'El campo medico es obligatorio.'],
     },
     fechaAtencion: {
       type: Date,
-      require: true,
+      require: [true, 'El campo fecha atencion es obligatorio.'],
     },
-    inicioFecha: {
+    fechaInicio: {
       type: Date,
-      require: true,
+      require: [true, 'El campo fecha inicio es obligatorio.'],
     },
-    finAtencion: {
+    fechaFin: {
       type: Date,
-      require: true,
+      require: [true, 'El campo fecha fin es obligatorio.'],
     },
     activo: {
       type: Boolean,
-      require: true,
       default: true,
     },
   },
