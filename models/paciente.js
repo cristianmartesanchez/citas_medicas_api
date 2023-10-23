@@ -4,11 +4,11 @@ const pacienteShema = new Schema(
   {
     nombres: {
       type: String,
-      require: [true, 'El campo nombre es obligatorio.'],
+      require: [true, 'El campo nombres es obligatorio.'],
     },
     apellidos: {
       type: String,
-      require: [true, 'El campo apellido es obligatorio.'],
+      require: [true, 'El campo apellidos es obligatorio.'],
     },
     edad: {
       type: Number,
@@ -21,10 +21,15 @@ const pacienteShema = new Schema(
     },
     direccion: {
       type: String,
+      require: false,
     },
     telefono: {
       type: String,
       require: [true, 'El campo telefono es obligatorio.'],
+    },
+    correo: {
+      type: String,
+      require: [true, 'El correo es obligatorio.'],
     },
     sexo: {
       type: String,
